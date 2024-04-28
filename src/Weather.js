@@ -19,7 +19,7 @@ export default function Weather() {
       <div className="weather-app-container">
         <div className="temperature-container">
           <div className="icon">
-            <img src={weatherData.imgUrl} />
+            <img src={weatherData.imgUrl} alt="sunny" />
           </div>
           <div className="current-temperature">
             {weatherData.currentTemperature}
