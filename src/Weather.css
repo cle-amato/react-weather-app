@@ -1,0 +1,24 @@
+h1 {
+  margin-top: 25px;
+}
+
+.weather-app-icon {
+  width: 45px;
+  height: 45px;
+}
+
+.weather-app-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.temperature-container {
+  display: flex;
+  font-size: 35px;
+}
+
+.current-weather-details {
+  margin-right: 10px;
+  line-height: 1.5;
+  font-size: 15px;
+}
