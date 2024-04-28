@@ -7,7 +7,6 @@ export default function App() {
     <div className="App">
       <Search />
       <Weather />
-      test
     </div>
   );
 }
