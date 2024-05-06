@@ -14,29 +14,36 @@ export default function Weather() {
   };
   return (
     <div className="Weather">
-      <h1 className="weather-city">{weatherData.city}</h1>
-      <p>{weatherData.currentDayTime}</p>
-      <div className="weather-app-container">
-        <div className="temperature-container">
-          <div className="icon">
-            <img src={weatherData.imgUrl} alt="sunny" />
+      <div className="container">
+        <div className="row">
+          <div className="col-6">
+            <h1 className="weather-city">{weatherData.city}</h1>
+            <p>{weatherData.currentDayTime}</p>
+            <div className="weather-app-container">
+              <div className="temperature-container">
+                <div className="icon">
+                  <img src={weatherData.imgUrl} alt="sunny" />
+                </div>
+                <div className="current-temperature">
+                  {weatherData.currentTemperature}
+                </div>
+                <div className="weather-degrees">°C</div>
+              </div>
+            </div>
           </div>
-          <div className="current-temperature">
-            {weatherData.currentTemperature}
-          </div>
-          <div className="weather-degrees">°C</div>
-        </div>
-
-        <div className="current-weather-details">
-          <div className="weather-condition">{weatherData.condition}</div>
-          <div>
-            Feels like <span>{weatherData.feelsLike}</span>°
-          </div>
-          <div>
-            Wind speed: <span>{weatherData.windSpeed}</span> km/h
-          </div>
-          <div>
-            Humidity: <span>{weatherData.humidity}</span>
+          <div className="col-6">
+            <div className="current-weather-details">
+              <div className="weather-condition">{weatherData.condition}</div>
+              <div>
+                Feels like <span>{weatherData.feelsLike}</span>°
+              </div>
+              <div>
+                Wind speed: <span>{weatherData.windSpeed}</span> km/h
+              </div>
+              <div>
+                Humidity: <span>{weatherData.humidity}</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
