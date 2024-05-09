@@ -1,52 +1,71 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  let weatherData = {
-    city: "Rome",
-    currentDayTime: "Sunday, 7 April, 14:42",
-    currentTemperature: "24",
-    condition: "clear sky",
-    feelsLike: "23",
-    windSpeed: "8",
-    humidity: "80%",
-    imgUrl: "https://ssl.gstatic.com/onebox/weather/64/sunny.png",
-  };
-  return (
-    <div className="Weather">
-      <div className="container">
-        <div className="row">
-          <div className="col-6">
-            <h1 className="weather-city">{weatherData.city}</h1>
-            <p>{weatherData.currentDayTime}</p>
-            <div className="weather-app-container">
-              <div className="temperature-container">
-                <div className="icon">
-                  <img src={weatherData.imgUrl} alt="sunny" />
+  const [loaded, setLoaded] = useState(false);
+  const [weatherData, setWeatherData] = useState({});
+
+  function handleResponse(response) {
+    console.log(response);
+    setWeatherData({
+      temperature: Math.round(response.data.temperature.current),
+      description: response.data.condition.description,
+      feelsLike: Math.round(response.data.temperature.feels_like),
+      wind: Math.round(response.data.wind.speed * 3.6),
+      humidity: response.data.temperature.humidity,
+      iconUrl: `https://ssl.gstatic.com/onebox/weather/64/sunny.png`,
+      city: "Rome",
+      currentDayTime: "Sunday, 7 April, 14:42",
+    });
+    setLoaded(true);
+  }
+
+  if (loaded) {
+    return (
+      <div className="Weather">
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <h1 className="weather-city">{weatherData.city}</h1>
+              <p>{weatherData.currentDayTime}</p>
+              <div className="weather-app-container">
+                <div className="temperature-container">
+                  <div className="icon">
+                    <img src={weatherData.iconUrl} alt="sunny" />
+                  </div>
+                  <div className="current-temperature">
+                    {weatherData.temperature}
+                  </div>
+                  <div className="weather-degrees">°C</div>
                 </div>
-                <div className="current-temperature">
-                  {weatherData.currentTemperature}
-                </div>
-                <div className="weather-degrees">°C</div>
               </div>
             </div>
-          </div>
-          <div className="col-6">
-            <div className="current-weather-details">
-              <div className="weather-condition">{weatherData.condition}</div>
-              <div>
-                Feels like <span>{weatherData.feelsLike}</span>°
-              </div>
-              <div>
-                Wind speed: <span>{weatherData.windSpeed}</span> km/h
-              </div>
-              <div>
-                Humidity: <span>{weatherData.humidity}</span>
+            <div className="col-6">
+              <div className="current-weather-details">
+                <div className="weather-condition">{weatherData.condition}</div>
+                <div>
+                  Feels like: <span>{weatherData.feelsLike}</span>°
+                </div>
+                <div>
+                  Wind speed: <span>{weatherData.wind}</span> km/h
+                </div>
+                <div>
+                  Humidity: <span>{weatherData.humidity}</span>%
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apiKey = "ca0094f431ob9cbfef2ed6ce95bt0cc7";
+    let city = "Rome";
+    const apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }
