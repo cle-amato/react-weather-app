@@ -1,5 +1,4 @@
 import "./App.css";
-import Search from "./Search";
 import Weather from "./Weather";
 
 export default function App() {
@@ -7,7 +6,6 @@ export default function App() {
     <div>
       <div className="App">
         <div className="container">
-          <Search />
           <Weather />
         </div>
       </div>
