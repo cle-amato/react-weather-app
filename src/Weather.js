@@ -30,7 +30,7 @@ export default function Weather(props) {
       feelsLike: Math.round(response.data.temperature.feels_like),
       wind: Math.round(response.data.wind.speed * 3.6),
       humidity: response.data.temperature.humidity,
-      iconUrl: `https://ssl.gstatic.com/onebox/weather/64/sunny.png`,
+      icon: response.data.condition.icon,
       date: new Date(response.data.time * 1000),
       city: response.data.city,
     });
