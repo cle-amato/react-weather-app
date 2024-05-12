@@ -5,10 +5,10 @@ import WeatherIcon from "./WeatherIcon";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
+      <h1 className="weather-city">{props.data.city}</h1>
       <div className="container">
         <div className="row">
-          <div className="col-6">
-            <h1 className="weather-city">{props.data.city}</h1>
+          <div className="col-6 current-date-temp">
             <FormattedDate date={props.data.date} />
             <div className="weather-app-container">
               <div className="temperature-container">

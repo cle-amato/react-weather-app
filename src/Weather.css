@@ -9,16 +9,22 @@ h1 {
 
 canvas {
   margin: 10px;
-  height: 45px;
+  height: 50px;
+}
+
+.current-date-temp {
+  margin-top: 20px;
+  font-size: 28px;
+  color: #212529;
 }
 
 .temperature-container {
   display: flex;
-  font-size: 35px;
+  font-size: 40px;
 }
 
 .current-weather-details {
-  margin: 80px 10px 0 0;
+  margin: 30px 10px 0 0;
   line-height: 1.5;
   font-size: 15px;
   text-align: right;
