@@ -14,13 +14,22 @@ canvas {
 
 .current-date-temp {
   margin-top: 20px;
-  font-size: 28px;
+  font-size: 20px;
   color: #212529;
 }
 
 .temperature-container {
   display: flex;
   font-size: 40px;
+}
+
+.weather-degrees {
+  vertical-align: top;
+  font-size: 20px;
+}
+
+.weather-degrees a {
+  text-decoration: none;
 }
 
 .current-weather-details {
