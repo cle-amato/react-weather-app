@@ -12,7 +12,7 @@ export default function App() {
       <footer>
         <a
           href="https://github.com/cle-amato/react-weather-app"
-          rel="noreferrer"
+          rel="noreferrer noopener"
           target="_blank"
         >
           Open source code
