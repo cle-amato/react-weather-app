@@ -6,8 +6,12 @@ canvas {
   margin: 10px;
 }
 
+.col-6 {
+  margin-bottom: 15px;
+}
+
 .current-date-temp {
-  margin-top: 20px;
+  margin-top: 15px;
   font-size: 20px;
   color: #212529;
 }
@@ -19,7 +23,7 @@ canvas {
 
 .weather-degrees {
   vertical-align: top;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .weather-degrees a {
@@ -27,7 +31,7 @@ canvas {
 }
 
 .current-weather-details {
-  margin: 30px 10px 0 0;
+  margin: 20px 10px 0 0;
   line-height: 1.5;
   font-size: 15px;
   text-align: right;
